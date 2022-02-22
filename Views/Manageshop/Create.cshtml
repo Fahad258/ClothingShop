@@ -1,0 +1,95 @@
+﻿@model clothingshopproject.Models.Clothingshop
+
+<form method="post"asp-action="Create">
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Add Product</h2>
+
+        </div>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="from-group row">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+
+                <div class="from-group row">
+                    <div class="col-4">
+                        <label asp-for="Size"></label>
+
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Size" class="form-control" asp-items="new SelectList(ViewBag.Size)">
+                            <option value="">Please Select Size</option>
+                        </select>
+                        
+                        <span asp-validation-for="Size" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <br />
+
+
+
+                <div class="from-group row">
+                    <div class="col-4">
+                        <label asp-for="ProductCode"></label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ProductCode" class="form-control" />
+                    </div>
+                </div>
+                <br />
+
+
+                <div class="from-group row">
+                    <div class="col-4">
+                        <label asp-for="price"></label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="price" class="form-control" />
+                        <span asp-validation-for="price" class="text-danger"></span>
+                    </div>
+                </div>
+                <br />
+                <br />
+
+
+                <div class="from-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Back</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+                <div class="col-4">
+                    @*keep this empty*@
+                </div>
+            </div>
+
+
+
+        </div>
+</form>
+@section scripts{ 
+   @{ <partial name="_ValidationScriptsPartial" />}
+}
